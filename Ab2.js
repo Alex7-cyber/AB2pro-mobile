@@ -20,6 +20,7 @@ const C = {
   border: '#E1E4EA',
   green: '#2E7D5B',
   orange: '#B26A00',
+  yellow: '#F2B705', // jaune chantier
 };
 
 const LANGS = [
@@ -33,8 +34,8 @@ const LANGS = [
 const T = {
   fr: {
     slogan: "L'intérim, nouvelle génération.", signIn: 'Se connecter', email: 'Identifiant ou e-mail', password: 'Mot de passe', faceId: 'Connexion avec Face ID', language: 'Langue', logout: 'Se déconnecter', back: 'Retour',
-    home: 'Accueil', missions: 'Missions', mission360: 'Mission 360°', planning: 'Planning', salary: 'Salaires', advances: 'Acomptes', hours: 'Heures', referral: 'Parrainage', travel: 'Prime voyage', documents: 'Documents', messages: 'Messagerie', copilot: 'AB2PRO Copilot', profile: 'Profil', agency: 'Espace agence',
-    hello: 'Bonjour', currentMission: 'Mission en cours', hoursThisMonth: 'Heures ce mois', nextShift: 'Prochain poste', quickAccess: 'Accès rapide', notifications: 'Notifications',
+    home: 'Accueil', chantier: 'Mon chantier', planning: 'Planning', salary: 'Salaires', advances: 'Acomptes', hours: 'Heures', referral: 'Parrainage', travel: 'Prime voyage', documents: 'Documents', messages: 'Messagerie', copilot: 'AB2PRO Copilot', profile: 'Profil', agency: 'Espace agence',
+    hello: 'Bonjour', currentMission: 'Chantier en cours', hoursThisMonth: 'Heures ce mois', nextShift: 'Prochain poste', quickAccess: 'Accès rapide', notifications: 'Notifications',
     amount: 'Montant (€)', send: 'Envoyer', requestAdvance: 'Demander un acompte', available: 'Disponible', approved: 'Validé', pending: 'En attente',
     advanceRules: 'Maximum 3 acomptes par mois, plafond total de 1 000 €. Demandes possibles à partir du 13 du mois.', advanceClosed: "Les demandes d'acompte ouvrent le 13 du mois.", advanceLimitCount: 'Vous avez atteint 3 demandes ce mois-ci.', advanceLimitAmount: 'Montant supérieur au plafond disponible.', advanceSent: 'Demande envoyée.', history: 'Historique', requestsUsed: 'Demandes utilisées',
     payslip: 'Bulletin de paie', net: 'Net', gross: 'Brut', download: 'Télécharger',
@@ -44,13 +45,14 @@ const T = {
     iban: 'IBAN', bic: 'BIC', changeIban: 'Modifier mon RIB', save: 'Enregistrer', ibanSaved: 'RIB mis à jour. Il sera pris en compte sur la prochaine paie.', ibanInvalid: 'IBAN invalide.', personalInfo: 'Informations personnelles',
     copilotWelcome: 'Bonjour, je suis AB2PRO Copilot. Posez-moi une question sur vos acomptes, salaires, heures, planning ou documents.', typeMessage: 'Écrire un message',
     agencyText: 'Votre agence AB2PRO', call: 'Appeler', write: 'Écrire', hoursOpen: "Horaires d'ouverture",
-    site: 'Site', schedule: 'Horaires', contact: 'Responsable', safety: 'Sécurité', rate: 'Taux horaire', details: 'Voir Mission 360°', start: 'Début', end: 'Fin',
-    notif1: 'Votre bulletin de paie est disponible.', notif2: 'Nouveau planning publié pour la semaine prochaine.',
+    site: 'Adresse du chantier', schedule: 'Horaires', contact: 'Chef de chantier', safety: 'Sécurité', rate: 'Taux horaire', details: 'Voir le chantier', start: 'Début', end: 'Fin',
+    notif1: 'Votre bulletin de paie est disponible.', notif2: 'Nouveau planning chantier publié pour la semaine prochaine.',
+    holder: 'Titulaire du compte', holderPh: 'Nom et prénom du titulaire', ribNotice: 'Le RIB doit obligatoirement être à votre nom. Un RIB au nom d\'une autre personne sera refusé.', holderRequired: 'Merci d\'indiquer le nom du titulaire du compte.', holderMismatch: 'Le titulaire du compte doit être vous-même ({name}). Les RIB au nom d\'une autre personne ne sont pas acceptés.', ppe: 'EPI obligatoires', task: 'Poste', siteWeek: 'Planning chantier', route: 'Itinéraire', today: 'Aujourd\'hui', days: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
   },
   ro: {
     slogan: 'Munca temporară, noua generație.', signIn: 'Conectare', email: 'Identificator sau e-mail', password: 'Parolă', faceId: 'Conectare cu Face ID', language: 'Limbă', logout: 'Deconectare', back: 'Înapoi',
-    home: 'Acasă', missions: 'Misiuni', mission360: 'Misiune 360°', planning: 'Program', salary: 'Salarii', advances: 'Avansuri', hours: 'Ore', referral: 'Recomandare', travel: 'Primă de călătorie', documents: 'Documente', messages: 'Mesagerie', copilot: 'AB2PRO Copilot', profile: 'Profil', agency: 'Agenție',
-    hello: 'Bună ziua', currentMission: 'Misiunea curentă', hoursThisMonth: 'Ore luna aceasta', nextShift: 'Următorul post', quickAccess: 'Acces rapid', notifications: 'Notificări',
+    home: 'Acasă', chantier: 'Șantierul meu', planning: 'Program', salary: 'Salarii', advances: 'Avansuri', hours: 'Ore', referral: 'Recomandare', travel: 'Primă de călătorie', documents: 'Documente', messages: 'Mesagerie', copilot: 'AB2PRO Copilot', profile: 'Profil', agency: 'Agenție',
+    hello: 'Bună ziua', currentMission: 'Șantierul curent', hoursThisMonth: 'Ore luna aceasta', nextShift: 'Următorul post', quickAccess: 'Acces rapid', notifications: 'Notificări',
     amount: 'Sumă (€)', send: 'Trimite', requestAdvance: 'Solicită un avans', available: 'Disponibil', approved: 'Aprobat', pending: 'În așteptare',
     advanceRules: 'Maximum 3 avansuri pe lună, plafon total de 1 000 €. Cereri posibile începând cu data de 13 a lunii.', advanceClosed: 'Cererile de avans se deschid pe 13 ale lunii.', advanceLimitCount: 'Ați atins 3 cereri luna aceasta.', advanceLimitAmount: 'Suma depășește plafonul disponibil.', advanceSent: 'Cerere trimisă.', history: 'Istoric', requestsUsed: 'Cereri folosite',
     payslip: 'Fluturaș de salariu', net: 'Net', gross: 'Brut', download: 'Descarcă',
@@ -60,13 +62,14 @@ const T = {
     iban: 'IBAN', bic: 'BIC', changeIban: 'Modifică contul bancar', save: 'Salvează', ibanSaved: 'Cont bancar actualizat. Va fi luat în calcul la următorul salariu.', ibanInvalid: 'IBAN invalid.', personalInfo: 'Informații personale',
     copilotWelcome: 'Bună ziua, sunt AB2PRO Copilot. Puneți-mi o întrebare despre avansuri, salarii, ore, program sau documente.', typeMessage: 'Scrieți un mesaj',
     agencyText: 'Agenția dumneavoastră AB2PRO', call: 'Sună', write: 'Scrie', hoursOpen: 'Program de lucru',
-    site: 'Loc de muncă', schedule: 'Program', contact: 'Responsabil', safety: 'Siguranță', rate: 'Tarif orar', details: 'Vezi Misiune 360°', start: 'Început', end: 'Sfârșit',
-    notif1: 'Fluturașul de salariu este disponibil.', notif2: 'Programul pentru săptămâna viitoare a fost publicat.',
+    site: 'Adresa șantierului', schedule: 'Program', contact: 'Șef de șantier', safety: 'Siguranță', rate: 'Tarif orar', details: 'Vezi șantierul', start: 'Început', end: 'Sfârșit',
+    notif1: 'Fluturașul de salariu este disponibil.', notif2: 'Programul de șantier pentru săptămâna viitoare a fost publicat.',
+    holder: 'Titularul contului', holderPh: 'Numele și prenumele titularului', ribNotice: 'Contul bancar (RIB) trebuie să fie obligatoriu pe numele dumneavoastră. Un cont pe numele altei persoane va fi refuzat.', holderRequired: 'Vă rugăm să indicați numele titularului contului.', holderMismatch: 'Titularul contului trebuie să fiți chiar dumneavoastră ({name}). Conturile pe numele altei persoane nu sunt acceptate.', ppe: 'EIP obligatorii', task: 'Post', siteWeek: 'Program șantier', route: 'Itinerariu', today: 'Azi', days: ['Dum', 'Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sâm'],
   },
   hu: {
     slogan: 'A munkaerő-kölcsönzés új generációja.', signIn: 'Bejelentkezés', email: 'Azonosító vagy e-mail', password: 'Jelszó', faceId: 'Bejelentkezés Face ID-val', language: 'Nyelv', logout: 'Kijelentkezés', back: 'Vissza',
-    home: 'Kezdőlap', missions: 'Megbízások', mission360: 'Megbízás 360°', planning: 'Beosztás', salary: 'Bérek', advances: 'Előlegek', hours: 'Órák', referral: 'Ajánlás', travel: 'Utazási prémium', documents: 'Dokumentumok', messages: 'Üzenetek', copilot: 'AB2PRO Copilot', profile: 'Profil', agency: 'Ügynökség',
-    hello: 'Jó napot', currentMission: 'Aktuális megbízás', hoursThisMonth: 'Órák ebben a hónapban', nextShift: 'Következő műszak', quickAccess: 'Gyors elérés', notifications: 'Értesítések',
+    home: 'Kezdőlap', chantier: 'Építkezésem', planning: 'Beosztás', salary: 'Bérek', advances: 'Előlegek', hours: 'Órák', referral: 'Ajánlás', travel: 'Utazási prémium', documents: 'Dokumentumok', messages: 'Üzenetek', copilot: 'AB2PRO Copilot', profile: 'Profil', agency: 'Ügynökség',
+    hello: 'Jó napot', currentMission: 'Aktuális építkezés', hoursThisMonth: 'Órák ebben a hónapban', nextShift: 'Következő műszak', quickAccess: 'Gyors elérés', notifications: 'Értesítések',
     amount: 'Összeg (€)', send: 'Küldés', requestAdvance: 'Előleg igénylése', available: 'Elérhető', approved: 'Jóváhagyva', pending: 'Folyamatban',
     advanceRules: 'Havonta legfeljebb 3 előleg, összesen 1 000 € felső határ. Igénylés a hónap 13. napjától lehetséges.', advanceClosed: 'Az előlegigénylés a hónap 13. napján nyílik.', advanceLimitCount: 'Ebben a hónapban elérte a 3 igénylést.', advanceLimitAmount: 'Az összeg meghaladja az elérhető keretet.', advanceSent: 'Igénylés elküldve.', history: 'Előzmények', requestsUsed: 'Felhasznált igénylések',
     payslip: 'Bérjegyzék', net: 'Nettó', gross: 'Bruttó', download: 'Letöltés',
@@ -76,13 +79,14 @@ const T = {
     iban: 'IBAN', bic: 'BIC', changeIban: 'Bankszámla módosítása', save: 'Mentés', ibanSaved: 'Bankszámla frissítve. A következő bérfizetéskor érvényes.', ibanInvalid: 'Érvénytelen IBAN.', personalInfo: 'Személyes adatok',
     copilotWelcome: 'Jó napot, AB2PRO Copilot vagyok. Kérdezzen előlegekről, bérekről, órákról, beosztásról vagy dokumentumokról.', typeMessage: 'Üzenet írása',
     agencyText: 'Az Ön AB2PRO ügynöksége', call: 'Hívás', write: 'Írás', hoursOpen: 'Nyitvatartás',
-    site: 'Munkahely', schedule: 'Munkaidő', contact: 'Felelős', safety: 'Biztonság', rate: 'Órabér', details: 'Megbízás 360° megnyitása', start: 'Kezdés', end: 'Befejezés',
-    notif1: 'Elérhető a bérjegyzéke.', notif2: 'Megjelent a jövő heti beosztás.',
+    site: 'Az építkezés címe', schedule: 'Munkaidő', contact: 'Építésvezető', safety: 'Biztonság', rate: 'Órabér', details: 'Építkezés megnyitása', start: 'Kezdés', end: 'Befejezés',
+    notif1: 'Elérhető a bérjegyzéke.', notif2: 'Megjelent a jövő heti építkezési beosztás.',
+    holder: 'Számlatulajdonos', holderPh: 'A számlatulajdonos teljes neve', ribNotice: 'A bankszámlának kötelezően az Ön nevén kell lennie. Más nevére szóló számlát elutasítunk.', holderRequired: 'Kérjük, adja meg a számlatulajdonos nevét.', holderMismatch: 'A számlatulajdonosnak Önnek kell lennie ({name}). Más személy nevére szóló számlát nem fogadunk el.', ppe: 'Kötelező védőfelszerelés', task: 'Feladat', siteWeek: 'Építkezési beosztás', route: 'Útvonal', today: 'Ma', days: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
   },
   bg: {
     slogan: 'Временната заетост от ново поколение.', signIn: 'Вход', email: 'Идентификатор или имейл', password: 'Парола', faceId: 'Вход с Face ID', language: 'Език', logout: 'Изход', back: 'Назад',
-    home: 'Начало', missions: 'Мисии', mission360: 'Мисия 360°', planning: 'График', salary: 'Заплати', advances: 'Аванси', hours: 'Часове', referral: 'Препоръка', travel: 'Пътна премия', documents: 'Документи', messages: 'Съобщения', copilot: 'AB2PRO Copilot', profile: 'Профил', agency: 'Агенция',
-    hello: 'Здравейте', currentMission: 'Текуща мисия', hoursThisMonth: 'Часове този месец', nextShift: 'Следваща смяна', quickAccess: 'Бърз достъп', notifications: 'Известия',
+    home: 'Начало', chantier: 'Моят обект', planning: 'График', salary: 'Заплати', advances: 'Аванси', hours: 'Часове', referral: 'Препоръка', travel: 'Пътна премия', documents: 'Документи', messages: 'Съобщения', copilot: 'AB2PRO Copilot', profile: 'Профил', agency: 'Агенция',
+    hello: 'Здравейте', currentMission: 'Текущ обект', hoursThisMonth: 'Часове този месец', nextShift: 'Следваща смяна', quickAccess: 'Бърз достъп', notifications: 'Известия',
     amount: 'Сума (€)', send: 'Изпрати', requestAdvance: 'Заявка за аванс', available: 'Налично', approved: 'Одобрено', pending: 'Изчакване',
     advanceRules: 'Максимум 3 аванса на месец, общ лимит 1 000 €. Заявки от 13-о число на месеца.', advanceClosed: 'Заявките за аванс се отварят на 13-о число.', advanceLimitCount: 'Достигнахте 3 заявки този месец.', advanceLimitAmount: 'Сумата надвишава наличния лимит.', advanceSent: 'Заявката е изпратена.', history: 'История', requestsUsed: 'Използвани заявки',
     payslip: 'Фиш за заплата', net: 'Нето', gross: 'Бруто', download: 'Изтегли',
@@ -92,13 +96,14 @@ const T = {
     iban: 'IBAN', bic: 'BIC', changeIban: 'Промяна на банковата сметка', save: 'Запази', ibanSaved: 'Банковата сметка е обновена. Ще се използва при следващата заплата.', ibanInvalid: 'Невалиден IBAN.', personalInfo: 'Лични данни',
     copilotWelcome: 'Здравейте, аз съм AB2PRO Copilot. Задайте въпрос за аванси, заплати, часове, график или документи.', typeMessage: 'Напишете съобщение',
     agencyText: 'Вашата агенция AB2PRO', call: 'Обаждане', write: 'Пиши', hoursOpen: 'Работно време',
-    site: 'Обект', schedule: 'Работно време', contact: 'Отговорник', safety: 'Безопасност', rate: 'Часова ставка', details: 'Виж Мисия 360°', start: 'Начало', end: 'Край',
-    notif1: 'Фишът ви за заплата е наличен.', notif2: 'Публикуван е графикът за следващата седмица.',
+    site: 'Адрес на обекта', schedule: 'Работно време', contact: 'Ръководител на обекта', safety: 'Безопасност', rate: 'Часова ставка', details: 'Виж обекта', start: 'Начало', end: 'Край',
+    notif1: 'Фишът ви за заплата е наличен.', notif2: 'Публикуван е графикът на обекта за следващата седмица.',
+    holder: 'Титуляр на сметката', holderPh: 'Име и фамилия на титуляря', ribNotice: 'Банковата сметка трябва задължително да е на ваше име. Сметка на името на друго лице ще бъде отказана.', holderRequired: 'Моля, въведете името на титуляря на сметката.', holderMismatch: 'Титулярят на сметката трябва да сте вие ({name}). Сметки на името на друго лице не се приемат.', ppe: 'Задължителни ЛПС', task: 'Задача', siteWeek: 'График на обекта', route: 'Маршрут', today: 'Днес', days: ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
   },
   pl: {
     slogan: 'Praca tymczasowa nowej generacji.', signIn: 'Zaloguj się', email: 'Login lub e-mail', password: 'Hasło', faceId: 'Logowanie przez Face ID', language: 'Język', logout: 'Wyloguj', back: 'Wstecz',
-    home: 'Start', missions: 'Misje', mission360: 'Misja 360°', planning: 'Grafik', salary: 'Wynagrodzenia', advances: 'Zaliczki', hours: 'Godziny', referral: 'Polecenia', travel: 'Premia za dojazd', documents: 'Dokumenty', messages: 'Wiadomości', copilot: 'AB2PRO Copilot', profile: 'Profil', agency: 'Agencja',
-    hello: 'Dzień dobry', currentMission: 'Bieżąca misja', hoursThisMonth: 'Godziny w tym miesiącu', nextShift: 'Następna zmiana', quickAccess: 'Szybki dostęp', notifications: 'Powiadomienia',
+    home: 'Start', chantier: 'Moja budowa', planning: 'Grafik', salary: 'Wynagrodzenia', advances: 'Zaliczki', hours: 'Godziny', referral: 'Polecenia', travel: 'Premia za dojazd', documents: 'Dokumenty', messages: 'Wiadomości', copilot: 'AB2PRO Copilot', profile: 'Profil', agency: 'Agencja',
+    hello: 'Dzień dobry', currentMission: 'Bieżąca budowa', hoursThisMonth: 'Godziny w tym miesiącu', nextShift: 'Następna zmiana', quickAccess: 'Szybki dostęp', notifications: 'Powiadomienia',
     amount: 'Kwota (€)', send: 'Wyślij', requestAdvance: 'Poproś o zaliczkę', available: 'Dostępne', approved: 'Zatwierdzono', pending: 'Oczekuje',
     advanceRules: 'Maksymalnie 3 zaliczki miesięcznie, łączny limit 1 000 €. Wnioski od 13. dnia miesiąca.', advanceClosed: 'Wnioski o zaliczkę otwierają się 13. dnia miesiąca.', advanceLimitCount: 'Osiągnięto 3 wnioski w tym miesiącu.', advanceLimitAmount: 'Kwota przekracza dostępny limit.', advanceSent: 'Wniosek wysłany.', history: 'Historia', requestsUsed: 'Wykorzystane wnioski',
     payslip: 'Pasek wypłaty', net: 'Netto', gross: 'Brutto', download: 'Pobierz',
@@ -108,27 +113,36 @@ const T = {
     iban: 'IBAN', bic: 'BIC', changeIban: 'Zmień konto bankowe', save: 'Zapisz', ibanSaved: 'Konto bankowe zaktualizowane. Zostanie uwzględnione przy następnej wypłacie.', ibanInvalid: 'Nieprawidłowy IBAN.', personalInfo: 'Dane osobowe',
     copilotWelcome: 'Dzień dobry, jestem AB2PRO Copilot. Zapytaj o zaliczki, wynagrodzenia, godziny, grafik lub dokumenty.', typeMessage: 'Napisz wiadomość',
     agencyText: 'Twoja agencja AB2PRO', call: 'Zadzwoń', write: 'Napisz', hoursOpen: 'Godziny otwarcia',
-    site: 'Miejsce pracy', schedule: 'Godziny pracy', contact: 'Kierownik', safety: 'Bezpieczeństwo', rate: 'Stawka godzinowa', details: 'Zobacz Misję 360°', start: 'Początek', end: 'Koniec',
-    notif1: 'Twój pasek wypłaty jest dostępny.', notif2: 'Opublikowano grafik na przyszły tydzień.',
+    site: 'Adres budowy', schedule: 'Godziny pracy', contact: 'Kierownik budowy', safety: 'Bezpieczeństwo', rate: 'Stawka godzinowa', details: 'Zobacz budowę', start: 'Początek', end: 'Koniec',
+    notif1: 'Twój pasek wypłaty jest dostępny.', notif2: 'Opublikowano grafik budowy na przyszły tydzień.',
+    holder: 'Właściciel konta', holderPh: 'Imię i nazwisko właściciela', ribNotice: 'Konto bankowe musi być obowiązkowo na Twoje nazwisko. Konto na nazwisko innej osoby zostanie odrzucone.', holderRequired: 'Podaj imię i nazwisko właściciela konta.', holderMismatch: 'Właścicielem konta musisz być Ty ({name}). Konta na nazwisko innej osoby nie są akceptowane.', ppe: 'Obowiązkowe ŚOI', task: 'Stanowisko', siteWeek: 'Grafik budowy', route: 'Trasa', today: 'Dziś', days: ['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So'],
   },
 };
 
 // ---------- Données de démonstration ----------
 const USER = { first: 'Alexandru', last: 'Popescu', id: 'INT-20481', email: 'a.popescu@email.com', phone: '+33 6 12 34 56 78' };
-const MISSIONS = [
-  { id: 'M1', title: 'Cariste CACES 3', company: 'LogiNord Entrepôts', city: 'Lille (59)', start: '02/11/2026', end: '31/01/2027', rate: '13,20 €', hours: '06:00 - 13:00', contact: 'M. Durand — 03 20 00 00 00', safety: 'Chaussures de sécurité, gilet haute visibilité, gants', address: 'ZI Lille Sud, 12 rue des Docks, 59000 Lille', current: true },
-  { id: 'M2', title: 'Préparateur de commandes', company: 'Distrib Plus', city: 'Seclin (59)', start: '01/09/2026', end: '31/10/2026', rate: '12,10 €', hours: '13:00 - 20:00', contact: 'Mme Lefèvre — 03 20 11 11 11', safety: 'Chaussures de sécurité, gants', address: '5 avenue de la Logistique, 59113 Seclin', current: false },
-];
+const CHANTIER = {
+  title: 'Maçon coffreur', company: 'BTP Nord Construction', name: 'Résidence Les Tilleuls — 48 logements',
+  city: "Villeneuve-d'Ascq (59)", address: "Chantier Les Tilleuls, 18 rue de la Briqueterie, 59650 Villeneuve-d'Ascq",
+  start: '02/11/2026', end: '30/04/2027', rate: '14,50 €', hours: '07:30 - 16:30',
+  contact: 'M. Durand — 06 12 00 00 00', phone: '0612000000',
+  safety: 'Casque, chaussures de sécurité, gilet haute visibilité, gants, lunettes de protection',
+};
+// day : 0 = dimanche … 6 = samedi
 const SHIFTS = [
-  { d: '25/11', h: '06:00 - 13:00' }, { d: '26/11', h: '06:00 - 13:00' }, { d: '27/11', h: '06:00 - 13:00' },
-  { d: '30/11', h: '06:00 - 13:00' }, { d: '01/12', h: '06:00 - 13:00' }, { d: '02/12', h: '13:00 - 20:00' },
+  { day: 3, d: '25/11', h: '07:30 - 16:30', task: 'Coffrage voiles R+1', zone: 'Bâtiment A' },
+  { day: 4, d: '26/11', h: '07:30 - 16:30', task: 'Coffrage voiles R+1', zone: 'Bâtiment A' },
+  { day: 5, d: '27/11', h: '07:30 - 12:00', task: 'Ferraillage dalle', zone: 'Bâtiment A' },
+  { day: 1, d: '30/11', h: '07:30 - 16:30', task: 'Coulage dalle R+1', zone: 'Bâtiment A' },
+  { day: 2, d: '01/12', h: '07:30 - 16:30', task: 'Décoffrage', zone: 'Bâtiment B' },
+  { day: 3, d: '02/12', h: '07:30 - 16:30', task: 'Montage agglos', zone: 'Bâtiment B' },
 ];
 const PAYSLIPS = [
   { m: '10/2026', net: '1 842,50 €', gross: '2 361,00 €' },
   { m: '09/2026', net: '1 790,20 €', gross: '2 294,00 €' },
   { m: '08/2026', net: '1 655,80 €', gross: '2 122,00 €' },
 ];
-const DOCS = ['Contrat de mission M1', 'Avenant de prolongation', 'Attestation employeur', 'Bulletin de paie 10/2026', 'Certificat CACES 3'];
+const DOCS = ['Contrat de mission — Les Tilleuls', 'Avenant de prolongation', 'Attestation employeur', 'Bulletin de paie 10/2026', 'Carte BTP', 'Habilitation travail en hauteur'];
 const TOTAL_HOURS = 312; // heures cumulées pour la prime voyage
 
 // ---------- Composants ----------
@@ -153,12 +167,12 @@ export default function App() {
   const [lang, setLang] = useState('fr');
   const [logged, setLogged] = useState(false);
   const [screen, setScreen] = useState('home');
-  const [mission, setMission] = useState(MISSIONS[0]);
   const t = (k) => (T[lang] && T[lang][k]) || T.fr[k] || k;
 
   // États partagés
   const [advances, setAdvances] = useState([{ date: '14/11/2026', amount: 200, status: 'approved' }]);
   const [iban, setIban] = useState('FR76 3000 6000 0112 3456 7890 189');
+  const [holder, setHolder] = useState(USER.first + ' ' + USER.last);
   const [messages, setMessages] = useState([
     { from: 'agency', text: 'Bonjour Alexandru, votre planning de la semaine prochaine est disponible.' },
   ]);
@@ -166,14 +180,13 @@ export default function App() {
   if (!logged) return <Login t={t} lang={lang} setLang={setLang} onLogin={() => setLogged(true)} />;
 
   const go = (sc) => setScreen(sc);
-  const titles = { home: 'AB2PRO Mobile', mission360: t('mission360') };
+  const titles = { home: 'AB2PRO Mobile' };
   const title = titles[screen] || t(screen);
-  const tabs = ['home', 'missions', 'planning', 'messages', 'profile'];
+  const tabs = ['home', 'chantier', 'planning', 'messages', 'profile'];
 
   let content;
   switch (screen) {
-    case 'missions': content = <Missions t={t} open={(m) => { setMission(m); go('mission360'); }} />; break;
-    case 'mission360': content = <Mission360 t={t} m={mission} />; break;
+    case 'chantier': content = <Chantier t={t} />; break;
     case 'planning': content = <Planning t={t} />; break;
     case 'salary': content = <Salary t={t} />; break;
     case 'advances': content = <Advances t={t} list={advances} setList={setAdvances} />; break;
@@ -183,7 +196,7 @@ export default function App() {
     case 'documents': content = <Documents t={t} />; break;
     case 'messages': content = <Messages t={t} list={messages} setList={setMessages} />; break;
     case 'copilot': content = <Copilot t={t} />; break;
-    case 'profile': content = <Profile t={t} lang={lang} setLang={setLang} iban={iban} setIban={setIban} logout={() => { setLogged(false); setScreen('home'); }} />; break;
+    case 'profile': content = <Profile t={t} lang={lang} setLang={setLang} iban={iban} setIban={setIban} holder={holder} setHolder={setHolder} logout={() => { setLogged(false); setScreen('home'); }} />; break;
     case 'agency': content = <Agency t={t} go={go} />; break;
     default: content = <Home t={t} go={go} advances={advances} />;
   }
@@ -193,7 +206,7 @@ export default function App() {
       <StatusBar barStyle="light-content" backgroundColor={C.navy} />
       <View style={s.header}>
         {screen !== 'home' ? (
-          <TouchableOpacity onPress={() => go(screen === 'mission360' ? 'missions' : 'home')} style={s.backBtn}>
+          <TouchableOpacity onPress={() => go('home')} style={s.backBtn}>
             <Text style={s.backText}>{'< ' + t('back')}</Text>
           </TouchableOpacity>
         ) : <View style={s.backBtn} />}
@@ -248,13 +261,13 @@ function Login({ t, lang, setLang, onLogin }) {
 }
 
 function Home({ t, go, advances }) {
-  const modules = ['missions', 'mission360', 'planning', 'salary', 'advances', 'hours', 'referral', 'travel', 'documents', 'messages', 'copilot', 'agency'];
+  const modules = ['chantier', 'planning', 'salary', 'advances', 'hours', 'referral', 'travel', 'documents', 'messages', 'copilot', 'agency'];
   const used = advances.reduce((a, b) => a + b.amount, 0);
   return (
     <ScrollView contentContainerStyle={s.page}>
       <View style={s.hero}>
         <Text style={s.heroHello}>{t('hello')}, {USER.first}</Text>
-        <Text style={s.heroSub}>{t('currentMission')} : {MISSIONS[0].title} — {MISSIONS[0].company}</Text>
+        <Text style={s.heroSub}>{t('currentMission')} : {CHANTIER.name}{'\n'}{CHANTIER.title} — {CHANTIER.company}</Text>
       </View>
       <View style={s.statRow}>
         <Card style={s.stat}><Text style={s.statValue}>142 h</Text><Text style={s.statLabel}>{t('hoursThisMonth')}</Text></Card>
@@ -262,8 +275,9 @@ function Home({ t, go, advances }) {
       </View>
       <Card>
         <Text style={s.cardLabel}>{t('nextShift')}</Text>
-        <Text style={s.cardValue}>{SHIFTS[0].d} · {SHIFTS[0].h}</Text>
-        <Text style={s.muted}>{MISSIONS[0].company}, {MISSIONS[0].city}</Text>
+        <Text style={s.cardValue}>{t('days')[SHIFTS[0].day]} {SHIFTS[0].d} · {SHIFTS[0].h}</Text>
+        <Text style={s.text}>{SHIFTS[0].task} — {SHIFTS[0].zone}</Text>
+        <Text style={s.muted}>{CHANTIER.name}, {CHANTIER.city}</Text>
       </Card>
       <Title>{t('notifications')}</Title>
       <Card><Text style={s.text}>{t('notif1')}</Text></Card>
@@ -281,42 +295,41 @@ function Home({ t, go, advances }) {
   );
 }
 
-function Missions({ t, open }) {
+const Hazard = () => (
+  <View style={s.hazard}>
+    {Array.from({ length: 24 }).map((_, i) => <View key={i} style={[s.hazardStripe, i % 2 === 1 && { backgroundColor: C.navy }]} />)}
+  </View>
+);
+
+function SiteHeader({ t }) {
   return (
-    <ScrollView contentContainerStyle={s.page}>
-      {MISSIONS.map((m) => (
-        <Card key={m.id}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Text style={s.cardValue}>{m.title}</Text>
-            <Badge text={m.current ? t('currentMission') : m.end} color={m.current ? C.green : C.muted} />
-          </View>
-          <Text style={s.muted}>{m.company} — {m.city}</Text>
-          <Row label={t('start')} value={m.start} />
-          <Row label={t('end')} value={m.end} />
-          <Btn title={t('details')} onPress={() => open(m)} style={{ marginTop: 10 }} />
-        </Card>
-      ))}
-    </ScrollView>
+    <View style={s.siteHero}>
+      <Hazard />
+      <View style={{ padding: 18 }}>
+        <Text style={s.siteKicker}>{t('currentMission').toUpperCase()}</Text>
+        <Text style={s.heroHello}>{CHANTIER.name}</Text>
+        <Text style={s.heroSub}>{CHANTIER.title} — {CHANTIER.company}</Text>
+        <Text style={[s.heroSub, { marginTop: 2 }]}>{CHANTIER.city}</Text>
+      </View>
+    </View>
   );
 }
 
-function Mission360({ t, m }) {
+function Chantier({ t }) {
   return (
     <ScrollView contentContainerStyle={s.page}>
-      <View style={s.hero}>
-        <Text style={s.heroHello}>{m.title}</Text>
-        <Text style={s.heroSub}>{m.company}</Text>
-      </View>
+      <SiteHeader t={t} />
       <Card>
-        <Row label={t('site')} value={m.address} />
-        <Row label={t('start')} value={m.start} />
-        <Row label={t('end')} value={m.end} />
-        <Row label={t('schedule')} value={m.hours} />
-        <Row label={t('rate')} value={m.rate} />
+        <Row label={t('site')} value={CHANTIER.address} />
+        <Row label={t('start')} value={CHANTIER.start} />
+        <Row label={t('end')} value={CHANTIER.end} />
+        <Row label={t('schedule')} value={CHANTIER.hours} />
+        <Row label={t('rate')} value={CHANTIER.rate} />
       </Card>
-      <Card><Text style={s.cardLabel}>{t('contact')}</Text><Text style={s.text}>{m.contact}</Text></Card>
-      <Card><Text style={s.cardLabel}>{t('safety')}</Text><Text style={s.text}>{m.safety}</Text></Card>
-      <Btn title="Itinéraire" variant="navy" onPress={() => Linking.openURL('https://maps.google.com/?q=' + encodeURIComponent(m.address))} />
+      <Card><Text style={s.cardLabel}>{t('contact')}</Text><Text style={s.text}>{CHANTIER.contact}</Text></Card>
+      <Card style={s.ppeCard}><Text style={[s.cardLabel, { color: C.navy }]}>{t('ppe')}</Text><Text style={s.text}>{CHANTIER.safety}</Text></Card>
+      <Btn title={t('route')} variant="navy" onPress={() => Linking.openURL('https://maps.google.com/?q=' + encodeURIComponent(CHANTIER.address))} />
+      <Btn title={t('call') + ' — ' + t('contact')} variant="outline" onPress={() => Linking.openURL('tel:' + CHANTIER.phone)} style={{ marginTop: 10 }} />
     </ScrollView>
   );
 }
@@ -324,13 +337,34 @@ function Mission360({ t, m }) {
 function Planning({ t }) {
   return (
     <ScrollView contentContainerStyle={s.page}>
+      <SiteHeader t={t} />
+      <Title>{t('siteWeek')}</Title>
       {SHIFTS.map((sh, i) => (
-        <Card key={i} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text style={s.cardValue}>{sh.d}</Text>
-          <Text style={s.text}>{sh.h}</Text>
-        </Card>
+        <View key={i} style={[s.shift, i === 0 && s.shiftToday]}>
+          <View style={[s.shiftDate, i === 0 && { backgroundColor: C.yellow }]}>
+            <Text style={[s.shiftDay, i === 0 && { color: C.navy }]}>{t('days')[sh.day]}</Text>
+            <Text style={[s.shiftNum, i === 0 && { color: C.navy }]}>{sh.d}</Text>
+          </View>
+          <View style={{ flex: 1, padding: 12 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Text style={s.cardValue}>{sh.h}</Text>
+              {i === 0 && <Badge text={t('today')} color={C.orange} />}
+            </View>
+            <Text style={s.text}>{t('task')} : {sh.task}</Text>
+            <Text style={s.muted}>{sh.zone}</Text>
+          </View>
+        </View>
       ))}
-      <Text style={s.muted}>{MISSIONS[0].company} — {MISSIONS[0].address}</Text>
+      <Card style={s.ppeCard}>
+        <Text style={[s.cardLabel, { color: C.navy }]}>{t('ppe')}</Text>
+        <Text style={s.text}>{CHANTIER.safety}</Text>
+      </Card>
+      <Card>
+        <Text style={s.cardLabel}>{t('contact')}</Text>
+        <Text style={s.text}>{CHANTIER.contact}</Text>
+        <Text style={s.muted}>{CHANTIER.address}</Text>
+      </Card>
+      <Btn title={t('route')} variant="navy" onPress={() => Linking.openURL('https://maps.google.com/?q=' + encodeURIComponent(CHANTIER.address))} />
     </ScrollView>
   );
 }
@@ -529,13 +563,20 @@ function Copilot({ t }) {
     onSend={(x) => setList([...list, { from: 'me', text: x }, { from: 'bot', text: answer(x) }])} />;
 }
 
-function Profile({ t, lang, setLang, iban, setIban, logout }) {
+const normName = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z\s-]/g, ' ').split(/[\s-]+/).filter(Boolean).sort().join(' ');
+
+function Profile({ t, lang, setLang, iban, setIban, holder, setHolder, logout }) {
   const [edit, setEdit] = useState(false);
   const [val, setVal] = useState(iban);
+  const [name, setName] = useState(holder);
+  const fullName = USER.first + ' ' + USER.last;
   const save = () => {
+    if (!name.trim()) return Alert.alert(t('holder'), t('holderRequired'));
+    if (normName(name) !== normName(fullName)) return Alert.alert(t('holder'), t('holderMismatch').replace('{name}', fullName));
     const clean = val.replace(/\s/g, '').toUpperCase();
     if (!/^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$/.test(clean)) return Alert.alert(t('iban'), t('ibanInvalid'));
     setIban(clean.replace(/(.{4})/g, '$1 ').trim());
+    setHolder(name.trim().replace(/\s+/g, ' '));
     setEdit(false);
     Alert.alert(t('iban'), t('ibanSaved'));
   };
@@ -551,13 +592,18 @@ function Profile({ t, lang, setLang, iban, setIban, logout }) {
       <Card>
         {edit ? (
           <>
+            <View style={s.notice}><Text style={s.noticeText}>{t('ribNotice')}</Text></View>
+            <Text style={s.fieldLabel}>{t('holder')} *</Text>
+            <Input value={name} onChangeText={setName} autoCapitalize="words" placeholder={t('holderPh')} />
+            <Text style={s.fieldLabel}>{t('iban')} *</Text>
             <Input value={val} onChangeText={setVal} autoCapitalize="characters" placeholder="FR76 ..." />
             <Btn title={t('save')} onPress={save} />
           </>
         ) : (
           <>
-            <Text style={s.cardValue}>{iban}</Text>
-            <Btn title={t('changeIban')} variant="outline" onPress={() => { setVal(iban); setEdit(true); }} style={{ marginTop: 10 }} />
+            <Row label={t('holder')} value={holder} />
+            <Text style={[s.cardValue, { marginTop: 10 }]}>{iban}</Text>
+            <Btn title={t('changeIban')} variant="outline" onPress={() => { setVal(iban); setName(holder); setEdit(true); }} style={{ marginTop: 10 }} />
           </>
         )}
       </Card>
@@ -598,6 +644,19 @@ const s = StyleSheet.create({
   backBtn: { width: 80 },
   backText: { color: C.rose, fontWeight: '600' },
   page: { padding: 16, paddingBottom: 32 },
+  hazard: { flexDirection: 'row', height: 10, overflow: 'hidden' },
+  hazardStripe: { flex: 1, backgroundColor: C.yellow, transform: [{ skewX: '-30deg' }], marginHorizontal: -1 },
+  siteHero: { backgroundColor: C.navy, borderRadius: 16, overflow: 'hidden', marginBottom: 14 },
+  siteKicker: { color: C.yellow, fontWeight: '800', fontSize: 12, letterSpacing: 1.5, marginBottom: 6 },
+  ppeCard: { backgroundColor: '#FFF6D6', borderColor: C.yellow, borderLeftWidth: 6 },
+  shift: { flexDirection: 'row', backgroundColor: C.white, borderRadius: 14, marginBottom: 10, borderWidth: 1, borderColor: C.border, overflow: 'hidden' },
+  shiftToday: { borderColor: C.yellow, borderWidth: 2 },
+  shiftDate: { width: 72, backgroundColor: C.navy, alignItems: 'center', justifyContent: 'center', paddingVertical: 12 },
+  shiftDay: { color: C.yellow, fontWeight: '800', fontSize: 15 },
+  shiftNum: { color: C.white, fontWeight: '700', marginTop: 2 },
+  notice: { backgroundColor: '#FFF6D6', borderLeftWidth: 4, borderLeftColor: C.orange, borderRadius: 8, padding: 10, marginBottom: 12 },
+  noticeText: { color: C.text, fontSize: 13, lineHeight: 18 },
+  fieldLabel: { color: C.muted, fontWeight: '600', marginBottom: 6 },
   card: { backgroundColor: C.white, borderRadius: 14, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: C.border },
   cardLabel: { color: C.bordeaux, fontWeight: '700', marginBottom: 6 },
   cardValue: { color: C.text, fontSize: 16, fontWeight: '700' },
